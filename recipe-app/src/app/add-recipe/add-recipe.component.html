@@ -1,13 +1,20 @@
-<p>add-recipe works!</p>
+<!-- <p>add-recipe works!</p>
 <label>NgModel input</label>
 <input type = "text" [(ngModel)]="binding">
-{{binding}}
+{{binding}} -->
 
-<form [formGroup]="addRecipeForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="addRecipeForm" (ngSubmit)="onSubmit()" class="form-container">
     <label>Name</label>
-    <input type="text" formControlName="name">
+    <input type="text" formControlName="name"/>
+
+    <label>Image</label>
+    <input type="text" formControlName="image"/>
+
+    <label>Difficulty</label>
+    <input type="text" formControlName="difficulty"/>
 
     <label>Preparation Time</label>
-    <input type="number" formControlName="preparationTime">
+    <input type="number" formControlName="prepTimeMinutes"/>
     <button type = "submit">Submit</button>
 </form>
+{{localStorageValue}}

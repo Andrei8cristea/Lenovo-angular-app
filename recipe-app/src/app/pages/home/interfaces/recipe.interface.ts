@@ -4,4 +4,7 @@ export interface Recipe{
     image: string;
     tags: string[];
     prepTimeMinutes: number;
+    difficulty: string;
 }
+
+const a : Pick<Recipe, 'name'>={name:'aaa'};
