@@ -2,19 +2,33 @@
 <label>NgModel input</label>
 <input type = "text" [(ngModel)]="binding">
 {{binding}} -->
+<body>
+    <div class = "form">
+        <form [formGroup]="addRecipeForm" (ngSubmit)="onSubmit()" class="form-container">
+            <h2>Please add your recipe below:</h2>
 
-<form [formGroup]="addRecipeForm" (ngSubmit)="onSubmit()" class="form-container">
-    <label>Name</label>
-    <input type="text" formControlName="name"/>
+            <br>
+            <label>Name</label>
+            <input type="text" formControlName="name"/>
+            
+            <br>
+            <label>Image</label>
+            <input type="text" formControlName="image"/>
 
-    <label>Image</label>
-    <input type="text" formControlName="image"/>
+            <br>
+            <label>Difficulty</label>
+            <input type="text" formControlName="difficulty"/>
 
-    <label>Difficulty</label>
-    <input type="text" formControlName="difficulty"/>
+            <br>
+            <label>Preparation Time</label>
+            <input type="number" formControlName="prepTimeMinutes"/>
 
-    <label>Preparation Time</label>
-    <input type="number" formControlName="prepTimeMinutes"/>
-    <button type = "submit">Submit</button>
-</form>
+            <br>
+            <div class="button-group">
+                <button type = "submit">Submit</button>
+                <button class="home-button" (click)="redirectToHomeComponent()">Go to home</button>
+            </div>
+        </form>
+    </div>
+</body>
 {{localStorageValue}}

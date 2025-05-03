@@ -18,4 +18,10 @@ const schema = i.schema({
 
 const db = init({appId: APP_ID, schema});
 
+// db.tx.recipes.listen((changes) => {
+//   console.log("Modificări detectate în baza de date:", changes);
+// });
+
+
+
 export {db, schema};

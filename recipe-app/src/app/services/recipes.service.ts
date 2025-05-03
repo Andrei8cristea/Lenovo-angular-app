@@ -19,12 +19,14 @@ export class RecipesService {
   }
 
   getRecipes(id: number){
-    return this.http.get(`${this.API_URL}/${id}`);
+    return this.http.get<Recipe>(`${this.API_URL}/${id}`);
   }
 
   addDbRecipes(recipeInput: Omit<Recipe, 'id'>){
+    const newId = id();
     db.transact(
-      db.tx.recipes[id()].update({
+      db.tx.recipes[newId].update({
+        id:newId,
         name: recipeInput.name,
         image: recipeInput.image,
         difficulty: recipeInput.difficulty,
@@ -32,6 +34,7 @@ export class RecipesService {
       })
     );
 
-    console.log('Succes, the recipe has been added')
+    //console.log('Succes, the recipe has been added')
+    alert('Succes, the recipe has been added');
   }
 }

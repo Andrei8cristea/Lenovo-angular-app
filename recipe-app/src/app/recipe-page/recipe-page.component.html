@@ -1,4 +1,30 @@
-<p>recipe-page works!</p>
+<!-- <p>recipe-page works!</p>
 <div>
    Id: {{this.router.snapshot.paramMap.get("id")}} 
-</div>
+</div> -->
+
+<!--
+? = null or undefined at the render moment
+
+! = non null. I am asserting the compiler that
+   the calue is not null or undefined at the
+   render moment
+-->
+
+
+<body>
+   <!-- <h2>ID : {{recipeId}}</h2> -->
+
+   <div class="recipe-container">
+      <h2>{{ recipe?.name }}</h2>
+      <p><strong>Difficutly: </strong>{{ recipe?.difficulty }}</p>
+      <p><strong>Prepartion time: </strong>{{ recipe?.prepTimeMinutes }}</p>
+      <img [src]="recipe!.image" alt="{{ recipe?.name }}">
+   </div>
+
+   <div class="go-back">
+      <button class="home-button" (click)="redirectToHomeComponent()">Go to home</button>
+   </div>
+
+</body>
+

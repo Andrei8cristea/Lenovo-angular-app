@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RecipesService } from '../services/recipes.service';
 import { Recipe } from '../pages/home/interfaces/recipe.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-recipe',
@@ -13,7 +14,7 @@ export class AddRecipeComponent {
   binding:any;
   localStorageValue : string | null  = "";
 
-  constructor(readonly recipeService: RecipesService){}
+  constructor(readonly router: Router,readonly recipeService: RecipesService){}
 
   addRecipeForm = new FormGroup({
     name: new FormControl('',[Validators.required, Validators.minLength(3)]),
@@ -41,9 +42,9 @@ export class AddRecipeComponent {
     if(this.addRecipeForm.valid){
       this.recipeService.addDbRecipes(this.addRecipeForm.value as Omit<Recipe, 'id'>)
     }
+  }
 
-
-
-
+  redirectToHomeComponent(){
+    this.router.navigateByUrl('recipes');
   }
 }

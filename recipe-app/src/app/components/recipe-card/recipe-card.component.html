@@ -1,14 +1,19 @@
 
-<div 
-    class = "card-container"
+<div class = "card-container"
     [ngStyle]="{
-        backgroundColor: recipe.prepTimeMinutes >= 20 ? 'red' : 'green'
+        backgroundColor: recipe.prepTimeMinutes >= 20 ? '#f95f5f' : '#239e47'
     }"
     [ngClass]="{colorWhite: recipe.difficulty === 'Easy'}"
 >
-    <div>{{recipe.name | uppercase }}</div>
+    <div><h2>{{recipe.name | uppercase }}</h2></div>
+    <!-- <div>{{recipe.id}}</div> -->
     <img [src]="recipe.image" alt="recipe-image" >
     <div><b>Preparation Time: </b>{{recipe.prepTimeMinutes}}</div>
-    <div>Difficulty: {{recipe.difficulty}}</div>
+    <div><b>Difficulty: </b>{{recipe.difficulty}}</div>
+    <div class="tags-container">
+        <span *ngFor="let tag of recipe.tags" class="tag">
+          {{ tag }}
+        </span>
+    </div>
     <button (click)="goToRecipePage()">Tell me more</button>
 </div>

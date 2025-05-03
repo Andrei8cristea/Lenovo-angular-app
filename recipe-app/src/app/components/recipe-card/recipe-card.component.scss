@@ -1,18 +1,63 @@
 .card-container{
-    background-color: beige;
+    border-radius: 15px;
+    background-color: 'darkgreen';
     width: 390px;
-    height: 450px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    h2{
+        margin-left: 1rem;
+        color: darkslategray;
+        font-size: 1.8rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-top: 10px;
+        padding:5px;
+        font-style: italic;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
 
 
     img{
         width:180px;
         height:180px;
     }
+    button{
+        font-size: large;
+        width: 150px;
+        height: 50px;
+        background-color: darkcyan;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-bottom: 20px;
+    
+        &:hover{
+            background-color: darkblue;
+            color: lightgoldenrodyellow;
+        }
+    }
 }
 .colorWhite{
     color: white;
 }
+.tags-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding:10px;
+  }
+  
+  .tag {
+    background-color: #f0f0f0;
+    color:black;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  
+  .tag:hover {
+    background-color: #ffcc00;
+    transform: scale(1.1);
+  }

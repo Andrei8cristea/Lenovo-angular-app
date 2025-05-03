@@ -4,6 +4,7 @@ import { RecipePageComponent } from './recipe-page/recipe-page.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { Page404Component } from './page404/page404.component';
 
+
 export const routes: Routes = [
     { path: '', redirectTo: 'recipes', pathMatch: 'full'},
     { path: 'recipes', component: HomeComponent},

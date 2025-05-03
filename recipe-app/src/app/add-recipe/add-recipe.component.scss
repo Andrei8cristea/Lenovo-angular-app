@@ -1,10 +1,45 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: lightblue;
+    overflow: hidden;
+}
 
+.form {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
 .form-container{
+    
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 350px;
     border: 1px solid rgb(31, 30, 0);
     border-radius: 2%;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
     background-color: cornsilk;
     padding: 4rem;
+
+    .button-group{
+        display:flex;
+        gap: 150px;
+    }
+}
+button{
+    width: 100px;
+    height: 30px;
+    background-color: lightblue;
+    border:none;
+    cursor: pointer;
+
+    &:hover{
+        background-color: darkblue;
+        color: lightgoldenrodyellow;
+    }
 }
