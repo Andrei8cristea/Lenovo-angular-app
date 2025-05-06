@@ -6,29 +6,42 @@
     <div class = "form">
         <form [formGroup]="addRecipeForm" (ngSubmit)="onSubmit()" class="form-container">
             <h2>Please add your recipe below:</h2>
-
-            <br>
-            <label>Name</label>
-            <input type="text" formControlName="name"/>
             
-            <br>
-            <label>Image</label>
-            <input type="text" formControlName="image"/>
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" formControlName="name">
 
-            <br>
-            <label>Difficulty</label>
-            <input type="text" formControlName="difficulty"/>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Image Link</mat-label>
+                <input matInput type="text" formControlName="image">
 
-            <br>
-            <label>Preparation Time</label>
-            <input type="number" formControlName="prepTimeMinutes"/>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Difficulty</mat-label>
+                <!-- <input matInput type="text" formControlName="difficulty"> -->
+                <mat-select formControlName="difficulty">
+                    <mat-option value="one">Easy</mat-option>
+                    <mat-option value="two">Medium</mat-option>
+                    <mat-option value="three">Hard</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Preparation Time</mat-label>
+                <input matInput type="number" formControlName="prepTimeMinutes">
 
-            <br>
+            </mat-form-field>
+            
+            
             <div class="button-group">
-                <button type = "submit">Submit</button>
-                <button class="home-button" (click)="redirectToHomeComponent()">Go to home</button>
+                <button mat-raised-button color="primary" type = "submit" [disabled]="addRecipeForm.invalid">Submit</button>
+                <button mat-raised-button class="home-button" (click)="redirectToHomeComponent()">Go back</button>
             </div>
+            <!-- <mat-slide-toggle>Toggle me!</mat-slide-toggle> -->
+
         </form>
     </div>
+
+    
 </body>
 {{localStorageValue}}

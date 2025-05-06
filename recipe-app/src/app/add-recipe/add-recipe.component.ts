@@ -4,9 +4,15 @@ import { RecipesService } from '../services/recipes.service';
 import { Recipe } from '../pages/home/interfaces/recipe.interface';
 import { Router } from '@angular/router';
 
+
+import{ MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule} from '@angular/material/select';
+
 @Component({
   selector: 'app-add-recipe',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule,MatFormFieldModule,MatInputModule, MatButtonModule,MatSelectModule],
   templateUrl: './add-recipe.component.html',
   styleUrl: './add-recipe.component.scss'
 })

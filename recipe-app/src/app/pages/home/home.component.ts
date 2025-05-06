@@ -21,10 +21,14 @@ filteredRecipes!: Recipe[];
 dbRecipes!: any[];
 errorMessage: any = '';
 searchValue = '';
+dbSubscription: any;
 
-constructor(recipesService: RecipesService, readonly router: Router){
-  this.recipes = recipesService.recipes;
-  recipesService.getAllRecipes().subscribe({
+constructor(public recipesService: RecipesService, readonly router: Router){
+}
+
+ngOnInit(){
+  this.recipes = this.recipesService.recipes;
+  this.recipesService.getAllRecipes().subscribe({
   next: (response) => {
   console.log(response);
   this.dummyRecipes = response.recipes;
@@ -39,7 +43,7 @@ constructor(recipesService: RecipesService, readonly router: Router){
   
 
 
-db.subscribeQuery({ recipes : {}}, (resp) => {
+this.dbSubscription=db.subscribeQuery({ recipes : {}}, (resp) => {
   if (resp.error){
   this.errorMessage = resp.error;
   }
@@ -48,19 +52,16 @@ db.subscribeQuery({ recipes : {}}, (resp) => {
   this.updateCombinedRecipes();
   }
   });
-
 }
 
-
-
+ngOnDestroy(){
+  this.dbSubscription();
+}
 
 updateCombinedRecipes(){
-// Dacă oricare din liste nu este încă încărcată, folosește array-uri goale
 const dummy = this.dummyRecipes || [];
 const dbRecs = this.dbRecipes || [];
-// Combină ambele liste; presupunem că nu există duplicate
 this.updatedRecipes = [...dummy, ...dbRecs];
-// Inițial, lista filtrată este egală cu lista combinată
 this.filteredRecipes = this.updatedRecipes;
 }
 

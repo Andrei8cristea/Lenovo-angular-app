@@ -1,4 +1,4 @@
-
+<!-- 
 <div class = "card-container"
     [ngStyle]="{
         backgroundColor: recipe.prepTimeMinutes >= 20 ? '#f95f5f' : '#239e47'
@@ -6,7 +6,7 @@
     [ngClass]="{colorWhite: recipe.difficulty === 'Easy'}"
 >
     <div><h2>{{recipe.name | uppercase }}</h2></div>
-    <!-- <div>{{recipe.id}}</div> -->
+    
     <img [src]="recipe.image" alt="recipe-image" >
     <div><b>Preparation Time: </b>{{recipe.prepTimeMinutes}}</div>
     <div><b>Difficulty: </b>{{recipe.difficulty}}</div>
@@ -16,4 +16,29 @@
         </span>
     </div>
     <button (click)="goToRecipePage()">Tell me more</button>
-</div>
+</div> -->
+
+<!-- ############################################ -->
+
+<mat-card class="card-container"
+[ngStyle]="{
+    backgroundColor: recipe.prepTimeMinutes >= 20 ? '#f95f5f' : '#239e47'
+}"
+[ngClass]="{colorWhite: recipe.difficulty === 'Easy'}">
+    <mat-card-header>
+      <mat-card-title>{{recipe.name | uppercase }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="recipe.image" alt="recipe-image">
+    <mat-card-content>
+      <p>
+        <b>Preparation Time: </b>{{recipe.prepTimeMinutes}}
+      </p>
+      <p>
+        <b>Difficulty: </b>{{recipe.difficulty}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="goToRecipePage()">Tell me more</button>
+    </mat-card-actions>
+  </mat-card>
+  
